@@ -69,6 +69,8 @@ export default function HeroSection() {
               alt={t('imageAlt')}
               fill
               sizes="(max-width: 768px) 0px, 50vw"
+              loading="eager"
+              priority
               className="object-contain p-8"
             />
           </div>
