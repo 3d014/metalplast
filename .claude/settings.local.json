@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\ATLANTA\\\\Projects\\\\metalplast\" -Recurse -Force)",
+      "Bash(Select-Object FullName)",
+      "PowerShell(head -100)",
+      "Bash(python3 -c \"import os; [print\\(f\\) for f in os.walk\\('src'\\)][:10]\")",
+      "Bash(powershell -Command \"Get-ChildItem -Path 'c:\\\\Users\\\\ATLANTA\\\\Projects\\\\metalplast\\\\src' -Recurse -Force\")",
+      "Bash(npm list *)",
+      "Bash(npx tsc *)",
+      "Bash(npx next *)",
+      "Bash(Remove-Item \"c:\\\\Users\\\\ATLANTA\\\\Projects\\\\metalplast\\\\src\\\\middleware.ts\")",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ]
+  }
+}
