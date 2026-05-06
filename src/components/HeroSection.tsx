@@ -1,6 +1,9 @@
+'use client';
+
 import { useTranslations } from 'next-intl';
 import { Link } from '@/navigation';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export default function HeroSection() {
   const t = useTranslations('Hero');
@@ -16,7 +19,12 @@ export default function HeroSection() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center w-full">
         {/* Left content */}
-        <div className="text-white">
+        <motion.div
+          className="text-white"
+          initial={{ opacity: 0, x: -60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
             {t('heading1')}<br />
             <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
@@ -29,39 +37,51 @@ export default function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              href="/contact"
-              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition transform hover:scale-105 text-center"
-            >
-              {t('ctaPrimary')}
-            </Link>
-            <Link
-              href="/about"
-              className="border-2 border-white text-white hover:bg-white hover:text-slate-900 font-bold py-3 px-8 rounded-lg transition text-center"
-            >
-              {t('ctaSecondary')}
-            </Link>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+              <Link
+                href="/contact"
+                className="block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition text-center"
+              >
+                {t('ctaPrimary')}
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+              <Link
+                href="/about"
+                className="block border-2 border-white text-white hover:bg-white hover:text-slate-900 font-bold py-3 px-8 rounded-lg transition text-center"
+              >
+                {t('ctaSecondary')}
+              </Link>
+            </motion.div>
           </div>
 
           {/* Stats */}
           <div className="grid grid-cols-3 gap-6 mt-12 pt-12 border-t border-slate-700">
-            <div>
-              <p className="text-3xl font-bold text-blue-400">{t('stat1Value')}</p>
-              <p className="text-slate-400">{t('stat1Label')}</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-blue-400">{t('stat2Value')}</p>
-              <p className="text-slate-400">{t('stat2Label')}</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-blue-400">{t('stat3Value')}</p>
-              <p className="text-slate-400">{t('stat3Label')}</p>
-            </div>
+            {[
+              { value: t('stat1Value'), label: t('stat1Label') },
+              { value: t('stat2Value'), label: t('stat2Label') },
+              { value: t('stat3Value'), label: t('stat3Label') },
+            ].map((stat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 + i * 0.1, ease: 'easeOut' }}
+              >
+                <p className="text-3xl font-bold text-blue-400">{stat.value}</p>
+                <p className="text-slate-400">{stat.label}</p>
+              </motion.div>
+            ))}
           </div>
-        </div>
+        </motion.div>
 
-        {/* Right image placeholder */}
-        <div className="relative h-96 md:h-full hidden md:block">
+        {/* Right image */}
+        <motion.div
+          className="relative h-96 md:h-full hidden md:block"
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-3xl"></div>
           <div className="relative w-full h-full bg-gradient-to-br from-slate-700 to-slate-800 rounded-3xl overflow-hidden flex items-center justify-center border border-slate-600">
             <Image
@@ -74,7 +94,7 @@ export default function HeroSection() {
               className="object-contain p-8"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Scroll indicator */}

@@ -1,4 +1,7 @@
+'use client';
+
 import { useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
 
 export default function FeaturesSection() {
   const t = useTranslations('Features');
@@ -49,31 +52,46 @@ export default function FeaturesSection() {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 to-slate-800">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             {t('heading')}
           </h2>
           <p className="text-lg text-slate-300 max-w-2xl mx-auto">
             {t('subtitle')}
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature) => (
-            <div
+          {features.map((feature, i) => (
+            <motion.div
               key={feature.id}
-              className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:border-white/40 transition group hover:bg-white/15"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.12, ease: 'easeOut' }}
+              whileHover={{ y: -6 }}
+              className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-colors group cursor-default"
             >
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition transform">
+              <motion.div
+                className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center text-white mb-6"
+                whileHover={{ scale: 1.1, rotate: 3 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+              >
                 {feature.icon}
-              </div>
+              </motion.div>
               <h3 className="text-xl font-bold text-white mb-2">
                 {t(feature.titleKey)}
               </h3>
               <p className="text-slate-300 leading-relaxed">
                 {t(feature.descKey)}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -1,5 +1,8 @@
+'use client';
+
 import { useTranslations } from 'next-intl';
 import { Link } from '@/navigation';
+import { motion } from 'framer-motion';
 
 export default function ServicesSection() {
   const t = useTranslations('Services');
@@ -31,20 +34,31 @@ export default function ServicesSection() {
   return (
     <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             {t('heading')}
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             {t('subtitle')}
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {services.map((service) => (
-            <div
+          {services.map((service, i) => (
+            <motion.div
               key={service.id}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105 overflow-hidden group"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.15, ease: 'easeOut' }}
+              whileHover={{ scale: 1.03, y: -4 }}
+              className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow overflow-hidden group"
             >
               <div className={`h-48 bg-gradient-to-br ${service.color} relative overflow-hidden`}>
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -73,14 +87,16 @@ export default function ServicesSection() {
                   ))}
                 </ul>
 
-                <Link
-                  href="/services"
-                  className="block w-full text-center bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-bold py-3 rounded-lg hover:shadow-lg transition"
-                >
-                  {t('learnMore')}
-                </Link>
+                <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+                  <Link
+                    href="/services"
+                    className="block w-full text-center bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-bold py-3 rounded-lg hover:shadow-lg transition"
+                  >
+                    {t('learnMore')}
+                  </Link>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

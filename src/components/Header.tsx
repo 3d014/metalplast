@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import { Link, usePathname, useRouter } from '@/navigation';
 import { routing } from '@/i18n/routing';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const localeLabels: Record<string, string> = {
   bs: 'BS',
@@ -23,7 +24,12 @@ export default function Header() {
   }
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
+    <motion.header
+      className="bg-white shadow-md sticky top-0 z-50"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+    >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -40,18 +46,23 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-slate-700 hover:text-slate-900 font-medium transition">
-              {t('home')}
-            </Link>
-            <Link href="/services" className="text-slate-700 hover:text-slate-900 font-medium transition">
-              {t('services')}
-            </Link>
-            <Link href="/about" className="text-slate-700 hover:text-slate-900 font-medium transition">
-              {t('about')}
-            </Link>
-            <Link href="/contact" className="text-slate-700 hover:text-slate-900 font-medium transition">
-              {t('contact')}
-            </Link>
+            {[
+              { href: '/', label: t('home') },
+              { href: '/services', label: t('services') },
+              { href: '/about', label: t('about') },
+              { href: '/contact', label: t('contact') },
+            ].map((item, i) => (
+              <motion.div
+                key={item.href}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.1 + i * 0.07, ease: 'easeOut' }}
+              >
+                <Link href={item.href} className="text-slate-700 hover:text-slate-900 font-medium transition">
+                  {item.label}
+                </Link>
+              </motion.div>
+            ))}
 
             {/* Locale switcher */}
             <div className="flex items-center gap-1 border border-slate-200 rounded-lg p-1">
@@ -66,12 +77,20 @@ export default function Header() {
               ))}
             </div>
 
-            <Link
-              href="/contact"
-              className="bg-slate-900 text-white px-6 py-2 rounded-lg hover:bg-slate-800 transition font-medium"
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.45, ease: 'easeOut' }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
             >
-              {t('cta')}
-            </Link>
+              <Link
+                href="/contact"
+                className="bg-slate-900 text-white px-6 py-2 rounded-lg hover:bg-slate-800 transition font-medium block"
+              >
+                {t('cta')}
+              </Link>
+            </motion.div>
           </div>
 
           {/* Mobile menu button */}
@@ -93,36 +112,10 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden pb-4 space-y-2">
-            <Link
-              href="/"
-              className="block px-4 py-2 text-slate-700 hover:bg-slate-100 rounded-lg transition"
-              onClick={() => setIsOpen(false)}
-            >
-              {t('home')}
-            </Link>
-            <Link
-              href="/services"
-              className="block px-4 py-2 text-slate-700 hover:bg-slate-100 rounded-lg transition"
-              onClick={() => setIsOpen(false)}
-            >
-              {t('services')}
-            </Link>
-            <Link
-              href="/about"
-              className="block px-4 py-2 text-slate-700 hover:bg-slate-100 rounded-lg transition"
-              onClick={() => setIsOpen(false)}
-            >
-              {t('about')}
-            </Link>
-            <Link
-              href="/contact"
-              className="block px-4 py-2 text-slate-700 hover:bg-slate-100 rounded-lg transition"
-              onClick={() => setIsOpen(false)}
-            >
-              {t('contact')}
-            </Link>
-
-            {/* Mobile locale switcher */}
+            <Link href="/" className="block px-4 py-2 text-slate-700 hover:bg-slate-100 rounded-lg transition" onClick={() => setIsOpen(false)}>{t('home')}</Link>
+            <Link href="/services" className="block px-4 py-2 text-slate-700 hover:bg-slate-100 rounded-lg transition" onClick={() => setIsOpen(false)}>{t('services')}</Link>
+            <Link href="/about" className="block px-4 py-2 text-slate-700 hover:bg-slate-100 rounded-lg transition" onClick={() => setIsOpen(false)}>{t('about')}</Link>
+            <Link href="/contact" className="block px-4 py-2 text-slate-700 hover:bg-slate-100 rounded-lg transition" onClick={() => setIsOpen(false)}>{t('contact')}</Link>
             <div className="flex items-center gap-2 px-4 py-2">
               {routing.locales.map((locale) => (
                 <button
@@ -134,17 +127,10 @@ export default function Header() {
                 </button>
               ))}
             </div>
-
-            <Link
-              href="/contact"
-              className="block w-full text-center bg-slate-900 text-white px-6 py-2 rounded-lg hover:bg-slate-800 transition font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              {t('cta')}
-            </Link>
+            <Link href="/contact" className="block w-full text-center bg-slate-900 text-white px-6 py-2 rounded-lg hover:bg-slate-800 transition font-medium" onClick={() => setIsOpen(false)}>{t('cta')}</Link>
           </div>
         )}
       </nav>
-    </header>
+    </motion.header>
   );
 }
