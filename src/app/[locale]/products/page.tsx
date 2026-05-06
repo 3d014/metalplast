@@ -1,30 +1,31 @@
 import { getTranslations } from 'next-intl/server';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ProductCard from '@/components/ProductCard';
 
 export default async function Products() {
   const t = await getTranslations('ProductsPage');
 
   const products = [
     {
-      nameKey: 'p1Name' as const,
-      descKey: 'p1Desc' as const,
-      featureKeys: ['p1f1', 'p1f2', 'p1f3'] as const,
+      name: t('p1Name'),
+      desc: t('p1Desc'),
+      features: [t('p1f1'), t('p1f2'), t('p1f3')],
     },
     {
-      nameKey: 'p2Name' as const,
-      descKey: 'p2Desc' as const,
-      featureKeys: ['p2f1', 'p2f2', 'p2f3'] as const,
+      name: t('p2Name'),
+      desc: t('p2Desc'),
+      features: [t('p2f1'), t('p2f2'), t('p2f3')],
     },
     {
-      nameKey: 'p3Name' as const,
-      descKey: 'p3Desc' as const,
-      featureKeys: ['p3f1', 'p3f2', 'p3f3'] as const,
+      name: t('p3Name'),
+      desc: t('p3Desc'),
+      features: [t('p3f1'), t('p3f2'), t('p3f3')],
     },
     {
-      nameKey: 'p4Name' as const,
-      descKey: 'p4Desc' as const,
-      featureKeys: ['p4f1', 'p4f2', 'p4f3'] as const,
+      name: t('p4Name'),
+      desc: t('p4Desc'),
+      features: [t('p4f1'), t('p4f2'), t('p4f3')],
     },
   ];
 
@@ -39,18 +40,12 @@ export default async function Products() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {products.map((product, index) => (
-                <div key={index} className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
-                  <h3 className="text-2xl font-bold text-blue-600 mb-3">{t(product.nameKey)}</h3>
-                  <p className="text-gray-600 mb-4">{t(product.descKey)}</p>
-                  <ul className="space-y-2">
-                    {product.featureKeys.map((key) => (
-                      <li key={key} className="text-gray-700 flex items-center">
-                        <span className="text-blue-600 mr-2">✓</span>
-                        {t(key)}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ProductCard
+                  key={index}
+                  name={product.name}
+                  desc={product.desc}
+                  features={product.features}
+                />
               ))}
             </div>
           </div>

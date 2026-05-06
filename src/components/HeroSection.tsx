@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/navigation';
+import Image from 'next/image';
 
 export default function HeroSection() {
   const t = useTranslations('Hero');
@@ -63,12 +64,13 @@ export default function HeroSection() {
         <div className="relative h-96 md:h-full hidden md:block">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-3xl"></div>
           <div className="relative w-full h-full bg-gradient-to-br from-slate-700 to-slate-800 rounded-3xl overflow-hidden flex items-center justify-center border border-slate-600">
-            <div className="text-center">
-              <svg className="w-32 h-32 mx-auto text-slate-500 mb-4" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" />
-              </svg>
-              <p className="text-slate-400">{t('imageAlt')}</p>
-            </div>
+            <Image
+              src="/metalplastLogo.jpg"
+              alt={t('imageAlt')}
+              fill
+              sizes="(max-width: 768px) 0px, 50vw"
+              className="object-contain p-8"
+            />
           </div>
         </div>
       </div>
