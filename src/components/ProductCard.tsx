@@ -6,59 +6,51 @@ interface ProductCardProps {
   name: string;
   desc: string;
   features: string[];
+  clickForDetails: string;
+  clickToGoBack: string;
 }
 
-export default function ProductCard({ name, desc, features }: ProductCardProps) {
+export default function ProductCard({ name, desc, features, clickForDetails, clickToGoBack }: ProductCardProps) {
   const [flipped, setFlipped] = useState(false);
 
   return (
     <div
-      className="cursor-pointer"
-      style={{ perspective: '1000px', height: '280px' }}
-      onClick={() => setFlipped(!flipped)}
+      className="cursor-pointer h-72"
+      style={{ perspective: '1000px' }}
+      onClick={() => setFlipped((f) => !f)}
     >
       <div
+        className="relative w-full h-full transition-transform duration-700"
         style={{
-          height: '100%',
-          width: '100%',
-          transition: 'transform 800ms',
-          WebkitTransition: '-webkit-transform 800ms',
-          position: 'relative',
           transformStyle: 'preserve-3d',
           transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
         }}
       >
-        {/* Front */}
         <div
-          className="absolute inset-0 bg-white rounded-lg shadow-md p-8 flex flex-col justify-between"
-          style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
+          className="absolute inset-0 bg-white rounded-xl shadow-md p-8 flex flex-col justify-between"
+          style={{ backfaceVisibility: 'hidden' }}
         >
           <div>
             <h3 className="text-2xl font-bold text-blue-600 mb-3">{name}</h3>
-            <p className="text-gray-600">{desc}</p>
+            <p className="text-slate-600 leading-relaxed">{desc}</p>
           </div>
-          <span className="text-sm text-gray-400 mt-4">Klikni za detalje →</span>
+          <span className="text-sm text-slate-400">{clickForDetails} →</span>
         </div>
 
-        {/* Back */}
         <div
-          className="absolute inset-0 bg-blue-600 rounded-lg shadow-md p-8 flex flex-col justify-center"
-          style={{
-            backfaceVisibility: 'hidden',
-            WebkitBackfaceVisibility: 'hidden',
-            transform: 'rotateY(180deg)',
-          }}
+          className="absolute inset-0 bg-blue-600 rounded-xl shadow-md p-8 flex flex-col justify-center"
+          style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
         >
           <h3 className="text-xl font-bold text-white mb-4">{name}</h3>
-          <ul className="space-y-2">
-            {features.map((feature, i) => (
-              <li key={i} className="text-white flex items-center">
-                <span className="mr-2 text-blue-200">✓</span>
+          <ul className="space-y-2 mb-6">
+            {features.map((feature) => (
+              <li key={feature} className="text-white flex items-center gap-2">
+                <span className="text-blue-200 flex-shrink-0">✓</span>
                 {feature}
               </li>
             ))}
           </ul>
-          <span className="text-sm text-blue-200 mt-4">← Klikni za povratak</span>
+          <span className="text-sm text-blue-200">← {clickToGoBack}</span>
         </div>
       </div>
     </div>

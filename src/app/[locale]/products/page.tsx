@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 
-export default async function Products() {
+export default async function ProductsPage() {
   const t = await getTranslations('ProductsPage');
 
   const products = [
@@ -29,22 +29,27 @@ export default async function Products() {
     },
   ];
 
+  const clickForDetails = t('clickForDetails');
+  const clickToGoBack = t('clickToGoBack');
+
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
+    <div className="flex flex-col min-h-screen bg-slate-50">
       <Header />
       <main className="flex-1">
-        <section className="py-20 px-6">
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
-            <h1 className="text-5xl font-bold mb-4 text-gray-800">{t('heading')}</h1>
-            <p className="text-xl text-gray-600 mb-12">{t('subtitle')}</p>
+            <h1 className="text-5xl font-bold mb-4 text-slate-900">{t('heading')}</h1>
+            <p className="text-xl text-slate-600 mb-12">{t('subtitle')}</p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {products.map((product, index) => (
+              {products.map((product) => (
                 <ProductCard
-                  key={index}
+                  key={product.name}
                   name={product.name}
                   desc={product.desc}
                   features={product.features}
+                  clickForDetails={clickForDetails}
+                  clickToGoBack={clickToGoBack}
                 />
               ))}
             </div>

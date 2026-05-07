@@ -120,6 +120,8 @@
   "ProductsPage": {
     "heading": "Naši Proizvodi",
     "subtitle": "Otkrijte naš širok asortiman visokokvalitetnih PVC i aluminijumskih proizvoda",
+    "clickForDetails": "Klikni za detalje",
+    "clickToGoBack": "Klikni za povratak",
     "p1Name": "PVC Prozori",
     "p1Desc": "Energetski efikasni PVC prozori u raznim stilovima i bojama za svaki prostor.",
     "p1f1": "Visoka toplotna izolacija",

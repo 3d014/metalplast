@@ -120,6 +120,8 @@
   "ProductsPage": {
     "heading": "Our Products",
     "subtitle": "Discover our wide range of high-quality PVC and aluminum products",
+    "clickForDetails": "Click for details",
+    "clickToGoBack": "Click to go back",
     "p1Name": "PVC Windows",
     "p1Desc": "Energy-efficient PVC windows in various styles and colors for every space.",
     "p1f1": "High thermal insulation",

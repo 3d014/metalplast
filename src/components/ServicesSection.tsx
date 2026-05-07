@@ -2,34 +2,57 @@
 
 import { useTranslations } from 'next-intl';
 import { Link } from '@/navigation';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { productImages, type ImageAsset } from '@/lib/images';
+
+interface Service {
+  id: number;
+  titleKey: 's1Title' | 's2Title' | 's3Title';
+  descKey: 's1Desc' | 's2Desc' | 's3Desc';
+  featureKeys: readonly string[];
+  image: ImageAsset;
+  overlayColor: string;
+}
+
+const services: Service[] = [
+  {
+    id: 1,
+    titleKey: 's1Title',
+    descKey: 's1Desc',
+    featureKeys: ['s1f1', 's1f2', 's1f3'],
+    image: productImages.windows,
+    overlayColor: 'from-blue-600/60 to-blue-500/40',
+  },
+  {
+    id: 2,
+    titleKey: 's2Title',
+    descKey: 's2Desc',
+    featureKeys: ['s2f1', 's2f2', 's2f3'],
+    image: productImages.doors,
+    overlayColor: 'from-cyan-600/60 to-blue-500/40',
+  },
+  {
+    id: 3,
+    titleKey: 's3Title',
+    descKey: 's3Desc',
+    featureKeys: ['s3f1', 's3f2', 's3f3'],
+    image: productImages.fences,
+    overlayColor: 'from-emerald-600/60 to-cyan-500/40',
+  },
+];
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.15, ease: 'easeOut' },
+  }),
+};
 
 export default function ServicesSection() {
   const t = useTranslations('Services');
-
-  const services = [
-    {
-      id: 1,
-      titleKey: 's1Title' as const,
-      descKey: 's1Desc' as const,
-      featureKeys: ['s1f1', 's1f2', 's1f3'] as const,
-      color: 'from-blue-500 to-blue-600',
-    },
-    {
-      id: 2,
-      titleKey: 's2Title' as const,
-      descKey: 's2Desc' as const,
-      featureKeys: ['s2f1', 's2f2', 's2f3'] as const,
-      color: 'from-cyan-500 to-blue-500',
-    },
-    {
-      id: 3,
-      titleKey: 's3Title' as const,
-      descKey: 's3Desc' as const,
-      featureKeys: ['s3f1', 's3f2', 's3f3'] as const,
-      color: 'from-emerald-500 to-cyan-500',
-    },
-  ];
 
   return (
     <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
@@ -53,19 +76,23 @@ export default function ServicesSection() {
           {services.map((service, i) => (
             <motion.div
               key={service.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              custom={i}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.15, ease: 'easeOut' }}
               whileHover={{ scale: 1.03, y: -4 }}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow overflow-hidden group"
+              className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow overflow-hidden"
             >
-              <div className={`h-48 bg-gradient-to-br ${service.color} relative overflow-hidden`}>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <svg className="w-20 h-20 text-white opacity-50" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" />
-                  </svg>
-                </div>
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src={service.image.src}
+                  alt={service.image.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.overlayColor}`} />
               </div>
 
               <div className="p-8">
@@ -82,7 +109,7 @@ export default function ServicesSection() {
                       <svg className="w-5 h-5 text-blue-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
-                      {t(key)}
+                      {t(key as Parameters<typeof t>[0])}
                     </li>
                   ))}
                 </ul>

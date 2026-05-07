@@ -3,13 +3,13 @@ import { Link } from '@/navigation';
 
 export default function Footer() {
   const t = useTranslations('Footer');
+  const nav = useTranslations('Nav');
   const currentYear = new Date().getFullYear();
 
   return (
     <footer id="contact" className="bg-slate-900 text-white pt-20 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
-          {/* Company Info */}
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-cyan-300 rounded-lg flex items-center justify-center">
@@ -32,34 +32,37 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="text-lg font-bold mb-6">{t('quickLinks')}</h4>
             <ul className="space-y-3">
               <li>
                 <Link href="/" className="text-slate-400 hover:text-blue-400 transition">
-                  {t('s1')}
+                  {nav('home')}
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="text-slate-400 hover:text-blue-400 transition">
-                  {t('servicesTitle')}
+                  {nav('services')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/gallery" className="text-slate-400 hover:text-blue-400 transition">
+                  {nav('gallery')}
                 </Link>
               </li>
               <li>
                 <Link href="/about" className="text-slate-400 hover:text-blue-400 transition">
-                  {t('quickLinks')}
+                  {nav('about')}
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="text-slate-400 hover:text-blue-400 transition">
-                  {t('contactTitle')}
+                  {nav('contact')}
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Services */}
           <div>
             <h4 className="text-lg font-bold mb-6">{t('servicesTitle')}</h4>
             <ul className="space-y-3">
@@ -86,7 +89,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Info */}
           <div>
             <h4 className="text-lg font-bold mb-6">{t('contactTitle')}</h4>
             <div className="space-y-4">
@@ -111,7 +113,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-slate-400 text-sm">
             &copy; {currentYear} Metalplast. {t('copyright')}

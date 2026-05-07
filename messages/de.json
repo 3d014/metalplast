@@ -120,6 +120,8 @@
   "ProductsPage": {
     "heading": "Unsere Produkte",
     "subtitle": "Entdecken Sie unser breites Sortiment an hochwertigen PVC- und Aluminiumprodukten",
+    "clickForDetails": "Klicken für Details",
+    "clickToGoBack": "Zurück klicken",
     "p1Name": "PVC-Fenster",
     "p1Desc": "Energieeffiziente PVC-Fenster in verschiedenen Stilen und Farben für jeden Raum.",
     "p1f1": "Hohe Wärmedämmung",
