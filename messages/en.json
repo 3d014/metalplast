@@ -145,6 +145,20 @@
     "p4f2": "Easy maintenance",
     "p4f3": "Aesthetic appearance"
   },
+  "Meta": {
+    "homeTitle": "Metalplast – PVC & Aluminum Joinery | Brčko, Bosnia",
+    "homeDescription": "Professional manufacturing and installation of PVC and aluminum windows, doors, and fences in Brčko and the surrounding region. 20+ years of experience. Call for a free estimate.",
+    "aboutTitle": "About Us – Metalplast | 20+ Years of Experience",
+    "aboutDescription": "Learn about Metalplast – the leading manufacturer of PVC and aluminum joinery in Brčko, with over 20 years of experience and hundreds of satisfied clients.",
+    "servicesTitle": "Services – PVC Windows, Aluminum Doors & Fences | Metalplast",
+    "servicesDescription": "Complete services including on-site measurement, custom manufacturing, and professional installation of PVC and aluminum windows, doors, and fences. Warranty on all products.",
+    "productsTitle": "Our Products – PVC & Aluminum Joinery | Metalplast",
+    "productsDescription": "Wide range of PVC windows, aluminum doors, windows, and fences. Top quality, custom dimensions, competitive prices.",
+    "galleryTitle": "Project Gallery – Metalplast Brčko",
+    "galleryDescription": "Browse our completed projects – aluminum doors, fences, panel enclosures, and roller shutters.",
+    "contactTitle": "Contact – Metalplast | Suljagica Sokak 17, Brcko",
+    "contactDescription": "Contact Metalplast for a free estimate and quote. Address: Suljagica Sokak 17, Brcko 76100. Phone: +387 61 152 357."
+  },
   "GalleryPage": {
     "heading": "Gallery",
     "subtitle": "Browse our completed projects — windows, doors, and fences we have installed.",

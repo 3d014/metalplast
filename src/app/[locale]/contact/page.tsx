@@ -1,7 +1,22 @@
+import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Meta' });
+  return {
+    title: t('contactTitle'),
+    description: t('contactDescription'),
+    openGraph: { title: t('contactTitle'), description: t('contactDescription') },
+  };
+}
 
 export default async function Contact() {
   const t = await getTranslations('ContactPage');
