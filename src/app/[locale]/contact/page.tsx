@@ -97,6 +97,18 @@ export default async function Contact() {
                 </div>
               </div>
             </div>
+
+            <div className="mt-12 rounded-xl overflow-hidden shadow-md">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2827.6801872585734!2d18.782621799999998!3d44.868805099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475c0e9e990ab319%3A0xf0b72d9039bf7423!2sMetalplast!5e0!3m2!1shr!2sba!4v1778126659523!5m2!1shr!2sba"
+                width="100%"
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </div>
         </section>
       </main>
