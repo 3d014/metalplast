@@ -87,6 +87,7 @@ export default async function Contact() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
+                  allow="accelerometer; gyroscope"
                 />
               </div>
             </div>
