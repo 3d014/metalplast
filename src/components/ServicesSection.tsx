@@ -12,7 +12,6 @@ interface Service {
   descKey: 's1Desc' | 's2Desc' | 's3Desc';
   featureKeys: readonly string[];
   image: ImageAsset;
-  overlayColor: string;
 }
 
 const services: Service[] = [
@@ -22,7 +21,6 @@ const services: Service[] = [
     descKey: 's1Desc',
     featureKeys: ['s1f1', 's1f2', 's1f3'],
     image: productImages.windows,
-    overlayColor: 'from-blue-600/60 to-blue-500/40',
   },
   {
     id: 2,
@@ -30,7 +28,6 @@ const services: Service[] = [
     descKey: 's2Desc',
     featureKeys: ['s2f1', 's2f2', 's2f3'],
     image: productImages.doors,
-    overlayColor: 'from-cyan-600/60 to-blue-500/40',
   },
   {
     id: 3,
@@ -38,7 +35,6 @@ const services: Service[] = [
     descKey: 's3Desc',
     featureKeys: ['s3f1', 's3f2', 's3f3'],
     image: productImages.fences,
-    overlayColor: 'from-emerald-600/60 to-cyan-500/40',
   },
 ];
 
@@ -92,7 +88,6 @@ export default function ServicesSection() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.overlayColor}`} />
               </div>
 
               <div className="p-8">
