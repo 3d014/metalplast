@@ -2,6 +2,8 @@
   "Nav": {
     "home": "Početna",
     "services": "Usluge",
+    "products": "Proizvodi",
+    "gallery": "Galerija",
     "about": "O nama",
     "contact": "Kontakt",
     "cta": "Kontaktirajte nas"
@@ -138,6 +140,11 @@
     "p4f1": "Prilagođene dimenzije",
     "p4f2": "Lako održavanje",
     "p4f3": "Estetski izgled"
+  },
+  "GalleryPage": {
+    "heading": "Galerija",
+    "subtitle": "Pogledajte naše radove — prozori, vrata i ograde koje smo ugradili.",
+    "close": "Zatvori"
   },
   "ServicesPage": {
     "heading": "Naše Usluge",

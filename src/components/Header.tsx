@@ -49,6 +49,7 @@ export default function Header() {
             {[
               { href: '/', label: t('home') },
               { href: '/services', label: t('services') },
+              { href: '/gallery', label: t('gallery') },
               { href: '/about', label: t('about') },
               { href: '/contact', label: t('contact') },
             ].map((item, i) => (
@@ -114,6 +115,7 @@ export default function Header() {
           <div className="md:hidden pb-4 space-y-2">
             <Link href="/" className="block px-4 py-2 text-slate-700 hover:bg-slate-100 rounded-lg transition" onClick={() => setIsOpen(false)}>{t('home')}</Link>
             <Link href="/services" className="block px-4 py-2 text-slate-700 hover:bg-slate-100 rounded-lg transition" onClick={() => setIsOpen(false)}>{t('services')}</Link>
+            <Link href="/gallery" className="block px-4 py-2 text-slate-700 hover:bg-slate-100 rounded-lg transition" onClick={() => setIsOpen(false)}>{t('gallery')}</Link>
             <Link href="/about" className="block px-4 py-2 text-slate-700 hover:bg-slate-100 rounded-lg transition" onClick={() => setIsOpen(false)}>{t('about')}</Link>
             <Link href="/contact" className="block px-4 py-2 text-slate-700 hover:bg-slate-100 rounded-lg transition" onClick={() => setIsOpen(false)}>{t('contact')}</Link>
             <div className="flex items-center gap-2 px-4 py-2">

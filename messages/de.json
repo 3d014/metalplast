@@ -2,6 +2,8 @@
   "Nav": {
     "home": "Startseite",
     "services": "Leistungen",
+    "products": "Produkte",
+    "gallery": "Galerie",
     "about": "Über uns",
     "contact": "Kontakt",
     "cta": "Kontaktieren Sie uns"
@@ -138,6 +140,11 @@
     "p4f1": "Individuelle Abmessungen",
     "p4f2": "Einfache Pflege",
     "p4f3": "Ästhetisches Erscheinungsbild"
+  },
+  "GalleryPage": {
+    "heading": "Galerie",
+    "subtitle": "Sehen Sie unsere abgeschlossenen Projekte — Fenster, Türen und Zäune die wir installiert haben.",
+    "close": "Schließen"
   },
   "ServicesPage": {
     "heading": "Unsere Leistungen",

@@ -2,6 +2,8 @@
   "Nav": {
     "home": "Home",
     "services": "Services",
+    "products": "Products",
+    "gallery": "Gallery",
     "about": "About",
     "contact": "Contact",
     "cta": "Contact Us"
@@ -138,6 +140,11 @@
     "p4f1": "Custom dimensions",
     "p4f2": "Easy maintenance",
     "p4f3": "Aesthetic appearance"
+  },
+  "GalleryPage": {
+    "heading": "Gallery",
+    "subtitle": "Browse our completed projects — windows, doors, and fences we have installed.",
+    "close": "Close"
   },
   "ServicesPage": {
     "heading": "Our Services",
