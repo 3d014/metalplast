@@ -107,6 +107,8 @@
     "messageLabel": "Poruka",
     "messagePlaceholder": "Vaša poruka",
     "send": "Pošaljite poruku",
+    "successMessage": "Poruka je uspješno poslana! Javit ćemo vam se uskoro.",
+    "errorMessage": "Slanje poruke nije uspjelo. Pokušajte ponovo.",
     "infoHeading": "Informacije za kontakt",
     "addressTitle": "Adresa",
     "addressValue": "Suljagića Sokak 17, Brčko, Bosna i Hercegovina, 76100",

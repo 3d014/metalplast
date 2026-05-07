@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ContactForm from '@/components/ContactForm';
 
 export default async function Contact() {
   const t = await getTranslations('ContactPage');
@@ -15,56 +16,23 @@ export default async function Contact() {
             <p className="text-xl text-gray-600 mb-12">{t('subtitle')}</p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {/* Contact Form */}
-              <div className="bg-white p-8 rounded-lg shadow-md">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6">{t('formHeading')}</h2>
-                <form className="space-y-4">
-                  <div>
-                    <label className="block text-gray-700 font-semibold mb-2">{t('nameLabel')}</label>
-                    <input
-                      type="text"
-                      name="name"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
-                      placeholder={t('namePlaceholder')}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-700 font-semibold mb-2">{t('emailLabel')}</label>
-                    <input
-                      type="email"
-                      name="email"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
-                      placeholder={t('emailPlaceholder')}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-700 font-semibold mb-2">{t('subjectLabel')}</label>
-                    <input
-                      type="text"
-                      name="subject"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
-                      placeholder={t('subjectPlaceholder')}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-700 font-semibold mb-2">{t('messageLabel')}</label>
-                    <textarea
-                      rows={5}
-                      name="message"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
-                      placeholder={t('messagePlaceholder')}
-                    ></textarea>
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition"
-                  >
-                    {t('send')}
-                  </button>
-                </form>
-              </div>
+              <ContactForm
+                labels={{
+                  formHeading: t('formHeading'),
+                  nameLabel: t('nameLabel'),
+                  namePlaceholder: t('namePlaceholder'),
+                  emailLabel: t('emailLabel'),
+                  emailPlaceholder: t('emailPlaceholder'),
+                  subjectLabel: t('subjectLabel'),
+                  subjectPlaceholder: t('subjectPlaceholder'),
+                  messageLabel: t('messageLabel'),
+                  messagePlaceholder: t('messagePlaceholder'),
+                  send: t('send'),
+                  successMessage: t('successMessage'),
+                  errorMessage: t('errorMessage'),
+                }}
+              />
 
-              {/* Contact Information */}
               <div className="bg-white p-8 rounded-lg shadow-md">
                 <h2 className="text-2xl font-bold text-gray-800 mb-6">{t('infoHeading')}</h2>
                 <div className="space-y-6">

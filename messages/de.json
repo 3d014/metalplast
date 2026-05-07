@@ -107,6 +107,8 @@
     "messageLabel": "Nachricht",
     "messagePlaceholder": "Ihre Nachricht",
     "send": "Nachricht senden",
+    "successMessage": "Nachricht erfolgreich gesendet! Wir melden uns bald.",
+    "errorMessage": "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
     "infoHeading": "Kontaktinformationen",
     "addressTitle": "Adresse",
     "addressValue": "Suljagica Sokak 17, Brcko, Bosnien und Herzegowina, 76100",
