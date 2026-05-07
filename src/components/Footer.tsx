@@ -100,8 +100,8 @@ export default function Footer() {
               </div>
               <div>
                 <p className="text-slate-400 text-sm mb-1">{t('phoneLabel')}</p>
-                <a href="tel:+38733123456" className="text-blue-400 hover:text-blue-300 transition">
-                  +387 (33) 123-456
+                <a href="tel:+38761152357" className="text-blue-400 hover:text-blue-300 transition">
+                  +387 61 152 357
                 </a>
               </div>
               <div>

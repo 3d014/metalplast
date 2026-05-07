@@ -83,8 +83,8 @@ export default async function Contact() {
                   <div>
                     <h3 className="text-lg font-semibold text-blue-600 mb-2">{t('phoneTitle')}</h3>
                     <p className="text-gray-600">
-                      <a href="tel:+38733123456" className="hover:text-blue-600">
-                        +387 (33) 123-456
+                      <a href="tel:+38761152357" className="hover:text-blue-600">
+                        +387 61 152 357
                       </a>
                     </p>
                   </div>
