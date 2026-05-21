@@ -15,7 +15,9 @@
       "Bash(git commit *)",
       "Bash(git config *)",
       "Bash(gh repo *)",
-      "PowerShell(gh repo create \"metalplast - vibe coding website\" --public --source=\"c:\\\\Users\\\\ATLANTA\\\\Projects\\\\metalplast\" --remote=origin --push 2>&1)"
+      "PowerShell(gh repo create \"metalplast - vibe coding website\" --public --source=\"c:\\\\Users\\\\ATLANTA\\\\Projects\\\\metalplast\" --remote=origin --push 2>&1)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\ATLANTA\\\\Projects\\\\metalplast\\\\messages\" -Force)",
+      "Bash(git push *)"
     ]
   }
 }

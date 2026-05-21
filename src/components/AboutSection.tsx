@@ -30,14 +30,16 @@ const features: FeatureItem[] = [
   },
 ];
 
+const easing: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
+
 const slideInLeft = {
   hidden: { opacity: 0, x: -50 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: easing } },
 };
 
 const slideInRight = {
   hidden: { opacity: 0, x: 50 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: easing } },
 };
 
 export default function AboutSection() {
